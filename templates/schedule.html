@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Schedule</title>
+	<link rel="stylesheet" type="text/css" href="static/schedule_styles.css">
+	<style>
+        .box button,
+        .box1 button,
+        .box2 button,
+        .box3 button {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .box1 button:hover,
+        .box2 button:hover,
+        .box3 button:hover {
+            background-color: #c0c0c0;
+        }
+    </style>
+
+</head>
+<body>
+	<header>
+		<div class="main">
+		
+		 <ul>
+		 <li class="active"><a href="#"><i class="fa fa-home"></i>Home</a></li>
+		 <li><a href="#">About</a></li>
+		 <li><a href="#">Contact</a></li>
+		 <li><a href="#">My Profile</a></li>
+		 <li><a href="#">Notifications</a></li>
+		 <li><a href="#">Report Emergency</a></li>
+		 
+		 <li><a href="#"><i class="fa fa-caret-down"></i> <i class="fa fa-caret-down"></i></a>
+		 	
+		 </li>
+		</ul>
+    </header>
+
+
+            <body>
+                <div class="box"><div class="rectangle"></div></div>
+                <div class="box1"><a href="{{ url_for('display_doctors') }}"><div class="rectangle">
+                    <p class="Doctor"> Available Doctors</p>
+                    <p class="total">Total</p>
+                    <p class="number">28</p>
+                    <img class="stethoscope" src="static/stethoscope.png" >
+                </div></a></div>
+                <div class="box2"><a href="{{ url_for('display_nurses') }}"><div class="rectangle2">
+                    <p class="Nurse"> Available Nurses</p>
+                    <p class="total2">Total</p>
+                    <p class="number2">35</p>
+                    <img class="nurse2" src="static/nurse.png" >
+                </div></a></div>
+                <div class="box3"><a href="receptionists.html"><div class="rectangle3">
+                    <p class="Receptionist"> Available Admins</p>
+                    <p class="total3">Total</p>
+                    <p class="number3">5</p>
+                    <img class="recep" src="static/receptionist.jpg" >
+                </div></a></div>
+                </body>
+            </html>

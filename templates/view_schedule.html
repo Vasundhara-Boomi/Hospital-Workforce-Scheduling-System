@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ doctor_name }}'s Schedule</title>
+    <style>
+        body {
+            height: 100%;
+            margin: 0;
+            background: linear-gradient(45deg, #49a09d, #5f2c82);
+            font-family: sans-serif;
+            font-weight: 100;
+        }
+
+        h1 {
+            font-family: 'Brush Script MT', cursive;
+            text-align: center;
+            color: #191919;
+            font-size: 50px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+            font-size: 13px;
+            color: #000000;
+        }
+
+        th {
+            background-color: #55608f;
+        }
+
+        td {
+            white-space: nowrap;
+            color: #000000;
+        }
+
+        td:hover {
+            background-color: rgb(213, 213, 213);
+        }
+    </style>
+</head>
+<body>
+
+{% for dept, days_info in doctor_schedule.items() %}
+    <h1>{{ doctor_name }}'s Schedule - {{ dept }}</h1>
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Shift 1</th>
+            <th>Shift 2</th>
+        </tr>
+
+        {% for day, shifts_info in days_info.items() %}
+            <tr>
+                <td>{{ day }}</td>
+                <td>{{ shifts_info['1']|default('') }}</td>
+                <td>{{ shifts_info['2']|default('') }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endfor %}
+
+</body>
+</html>

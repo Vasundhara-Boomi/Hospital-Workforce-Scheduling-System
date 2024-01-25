@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Department</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dept_style.css') }}">
+</head>
+<body>
+    <h1>Add Department</h1>
+    <form id="departmentForm">
+        <label for="deptName">Department Name:</label>
+        <input type="text" id="deptName" required><br>
+
+        <label for="deptId">Department ID:</label>
+        <input type="text" id="deptId" required><br>
+
+        <label for="numDoctors">Number of Doctors:</label>
+        <input type="number" id="numDoctors" required><br>
+
+        <label for="numReceptionists">Number of Nurses:</label>
+        <input type="number" id="numReceptionists" required><br>
+
+        <button type="button" id="addButton" onclick="addDepartment()">Add Department</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='js/dept_script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Schedule</title>
+    <style>
+        body {
+            height: 100%;
+            margin: 0;
+            background-image: url("{{ url_for('static', filename='img1.jpeg') }}");
+            font-family: sans-serif;
+            font-weight: 100;
+        }
+
+        h1 {
+            font-family: 'Brush Script MT', cursive;
+            text-align: center;
+            color: #191919;
+            font-size: 50px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.75);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px; 
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: left;
+            font-size: 13px;
+            color: #000000;
+        }
+
+        th {
+            background-color: #fff;
+        }
+    
+        td {
+            white-space: nowrap;
+            color: #000000; 
+        }
+
+        td:hover{
+            background-color: rgb(213, 213, 213); 
+        }
+    </style>
+</head>
+<body>
+
+<h1><b><i>{{role}}   SCHEDULE</i></b></h1>
+
+<table>
+    <tr>
+        <th>Department</th>
+    </tr>
+</table>
+
+<script>
+    const scheduleData = {{ schedule_data | tojson | safe }};
+;
+
+    const table = document.querySelector('table');
+
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    const today = new Date().getDay(); // Get today's index (0 for Sunday, 1 for Monday, ... 6 for Saturday)
+
+    const headerRow = table.querySelector('tr');
+    headerRow.innerHTML = '<th>Department</th>'; // Reset header
+    for (let i = 0; i < 7; i++) {
+        const dayIndex = (today + i) % 7;
+        const th = document.createElement('th');
+        th.textContent = daysOfWeek[dayIndex];
+        th.classList.add('day-header');
+        headerRow.appendChild(th);
+    }
+
+    Object.entries(scheduleData).forEach(([department, schedule]) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td><strong>${department}</strong></td>`;
+
+        for (let i = 0; i < 7; i++) {
+            const dayIndex = (today + i) % 7;
+            const cell = document.createElement('td');
+            const doctorsList = document.createElement('div');
+            doctorsList.classList.add('doctors');
+
+            const doctorsForDay = schedule.filter(([_, schDay]) => schDay.toLowerCase().includes(daysOfWeek[dayIndex].toLowerCase()));
+
+            const morningDoctors = doctorsForDay.filter(([_, schDay]) => schDay.endsWith('1')).map(([doctor]) => `<span>${doctor}</span>`).join('<br>');
+            const eveningDoctors = doctorsForDay.filter(([_, schDay]) => schDay.endsWith('2')).map(([doctor]) => `<span>${doctor}</span>`).join('<br>');
+
+            let doctorsListHTML = '';
+
+            if (morningDoctors && eveningDoctors) {
+                doctorsListHTML = `${morningDoctors}<br>${eveningDoctors}`;
+            } else if (morningDoctors) {
+                doctorsListHTML = morningDoctors;
+            } else if (eveningDoctors) {
+                doctorsListHTML = eveningDoctors;
+            }
+
+            doctorsList.innerHTML = doctorsListHTML;
+            cell.appendChild(doctorsList);
+            row.appendChild(cell);
+        }
+
+        table.appendChild(row);
+    });
+</script>
+
+</body>
+</html>

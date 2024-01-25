@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="static/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+    <header> 
+        <nav class="navbar" *ngIf="object.validation">
+            <marquee direction="right" behavior="alternate" scrollamount="11" style=" WHITE  SOLID; padding: 10px; font-size: 27px;">
+                Hospital Workforce Scheduling and Management System
+            </marquee>
+        </nav>
+    </header>
+    <div class="login">
+        <div class="div">
+            <form method="POST" action="{{ url_for('login') }}">
+                <div class="overlap">
+                    <input type="text" id="username" name="name" class="rectangle" placeholder="Username" required>
+                </div>
+                <div class="overlap-group">
+                    <input type="password" id="password" name="password" class="rectangle" placeholder="Password" required>
+                </div>
+                <div class="overlap-2">
+                    <div class="text-wrapper-3">Login</div>
+                    <div class="text-wrapper-4">Connect to your Network</div>
+                </div>
+                <div class="overlap-3">
+                    <select name="role" id="role" required>
+                        <option value="Doctor">Doctor</option>
+                        <option value="Nurse">Nurse</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Receptionist">Hospital</option>
+                    </select>
+                </div>
+                <button type="submit" class="div-wrapper">
+                    <span class="text-wrapper-5">Login</span>
+                </button>
+            </form>
+            <img class="loginpic" src="static/login.jpg" />
+        </div>
+    </div>
+</body>
+</html>

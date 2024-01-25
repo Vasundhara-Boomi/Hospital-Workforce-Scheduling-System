@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Past Working Status</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url("{{ url_for('static', filename='img1.jpeg') }}"); 
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    h1 {
+      margin-top: 100px; 
+      margin-bottom: 20px;
+      color: #fff; 
+      font-size: 3em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+      letter-spacing: 2px; 
+    }
+    .table-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+      width: 100%;
+      max-width: 800px;
+      overflow-x: auto;
+    }
+    /* Style for table */ 
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      font-weight: bold; 
+    }
+    th {
+      background-color: #f0f0f0;
+      color: #333;
+      text-transform: uppercase;
+    }
+    td {
+      border-top: 1px solid #ddd;
+      color: #555;
+    }
+    .present {
+      background-color: #bdecb6; 
+    }
+    .leave {
+      background-color: #f9c8cb;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Past Working Status</h1>
+
+<div class="table-container">
+  <table id="attendanceTable">
+    <thead>
+      <tr>
+        <th><b>Date</b></th>
+        <th><b>Status</b></th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      {% for entry in final_other %}
+        <tr class="{% if entry[1] == 'Present' %}present{% elif entry[1] == 'Leave' %}leave{% endif %}">
+          <td>{{ entry[0] }}</td>
+          <td>{{ entry[1] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script>
+    
+
+ 
+  function generateTable() {
+    const tableBody = document.getElementById('tableBody');
+
+    data.forEach(entry => {
+      const [dateString, status] = entry;
+      const date = new Date(dateString);
+      const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const dayOfWeek = dayNames[date.getDay()];
+
+      const row = document.createElement('tr');
+      const dateCell = document.createElement('td');
+      dateCell.textContent = dateString;
+      const dayCell = document.createElement('td');
+      dayCell.textContent = dayOfWeek;
+      const statusCell = document.createElement('td');
+      statusCell.textContent = status;
+      row.appendChild(dateCell);
+      row.appendChild(dayCell);
+      row.appendChild(statusCell);
+
+     
+      if (status === 'Present') {
+        row.classList.add('present');
+      } else if (status === 'Leave') {
+        row.classList.add('leave');
+      }
+
+      tableBody.appendChild(row);
+    });
+  }
+
+  
+  generateTable();
+</script>
+
+</body>
+</html>

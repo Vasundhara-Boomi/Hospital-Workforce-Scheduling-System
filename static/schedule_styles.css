@@ -1,0 +1,208 @@
+.box {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box .rectangle {
+  width: 1000px;
+  height: 400px;
+  background-color: #ffffff;
+  border-radius: 33px;
+  box-shadow: 0px 4px 23px #00000061;
+  opacity: 0.7;
+}
+
+
+.box1 {
+  position: fixed;
+  top: 39%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  }
+
+  .Doctor {
+      margin-top: 20px;
+      margin-left: 40px; 
+      font-family: "Sansation-Regular", Helvetica;
+      font-weight: 400;
+      color: #00738c;
+      font-size: 24px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+    
+    .total {margin-top: 10px;
+      margin-left: 160px; 
+      font-family: "Sansation-Regular", Helvetica;
+      font-weight: 400;
+      color: #00738c;
+      font-size: 32px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .number {margin-top: -30px;
+      margin-left: 170px; 
+      font-family: "Sansation-Regular", Helvetica;
+      font-weight: 400;
+      color: #00738c;
+      font-size: 47px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+    
+    
+    .stethoscope {
+      position: fixed;
+      width: 80px; 
+      height: auto; 
+      margin-top: -130px;
+      margin-left: 40px; 
+    }
+
+    
+  .box2 {
+      position: fixed;
+      top: 39%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      }
+
+      .Nurse {
+          margin-top: 20px;
+          margin-left: 40px; 
+          font-family: "Sansation-Regular", Helvetica;
+          font-weight: 400;
+          color: #00738c;
+          font-size: 24px;
+          letter-spacing: 0;
+          line-height: normal;
+        }
+        
+        .total2 {margin-top: 10px;
+          margin-left: 160px; 
+          font-family: "Sansation-Regular", Helvetica;
+          font-weight: 400;
+          color: #00738c;
+          font-size: 32px;
+          letter-spacing: 0;
+          line-height: normal;
+        }
+    
+        .number2 {margin-top: -30px;
+          margin-left: 170px; 
+          font-family: "Sansation-Regular", Helvetica;
+          font-weight: 400;
+          color: #00738c;
+          font-size: 47px;
+          letter-spacing: 0;
+          line-height: normal;
+        }
+        
+        
+        .nurse2 {
+          position: fixed;
+          width: 80px; 
+          height: auto; 
+          margin-top: -130px;
+          margin-left: 40px; 
+        }
+  .box3 {
+          position: fixed;
+          top: 39%;
+          left: 65%;
+          transform: translate(-50%, -50%);
+          }
+
+          .Receptionist {
+              margin-top: 20px;
+              margin-left: 42px; 
+              font-family: "Sansation-Regular", Helvetica;
+              font-weight: 400;
+              color: #00738c;
+              font-size: 24px;
+              letter-spacing: 0;
+              line-height: normal;
+            }
+            
+            .total3 {margin-top: 10px;
+              margin-left: 160px; 
+              font-family: "Sansation-Regular", Helvetica;
+              font-weight: 400;
+              color: #00738c;
+              font-size: 32px;
+              letter-spacing: 0;
+              line-height: normal;
+            }
+        
+            .number3 {margin-top: -30px;
+              margin-left: 170px; 
+              font-family: "Sansation-Regular", Helvetica;
+              font-weight: 400;
+              color: #00738c;
+              font-size: 47px;
+              letter-spacing: 0;
+              line-height: normal;
+            }
+            
+            
+            .recep {
+              position: fixed;
+              width: 80px; 
+              height: auto; 
+              margin-top: -130px;
+              margin-left: 40px; 
+            }
+  .box1 .rectangle,.box2 .rectangle2,.box3 .rectangle3 {
+  position: fixed;
+  width: 270px;
+  height: 200px;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 13px;
+  box-shadow: -1px 4px 15px #00000040;
+  }
+
+  body {
+      background-image: url('img1.jpeg');
+      background-size: cover;
+  }
+
+
+ul{
+float:right;
+list-style-type: none;
+margin-top: 30px;
+margin-right:60px ;
+}
+ul li{
+display: inline-block;
+}
+ul li a{
+text-decoration: none;
+color: #fff;
+padding: 5px 20px;
+border: 1px solid transparent;
+transition: 0.5s ease;
+
+}
+
+ul li a:hover{
+background-color: #fff;
+color: #000;
+}
+
+ul li.active a{
+background-color:#fff;
+color: #000;
+
+}
+
+.logo img{
+float: left;
+width: 150px;
+height: auto;
+}

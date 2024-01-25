@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>Responsive Registration Form</title>
+  <meta name="viewport" content="width=device-width,
+   initial-scale=1.0"/>
+  <link rel="stylesheet" href="static/register_style.css" />
+ </head>
+ <body>
+  <div class="container">
+   <h1 class="form-title">Registration</h1>
+   <form action="/submit" method="POST">
+    <div class="main-user-info">
+     <div class="user-input-box">
+      <label for="First Name">Fist Name</label>
+      <input type="text"
+          id="First Name"
+          name="First Name"
+          placeholder="Enter First Name" required/>
+     </div>
+     <div class="user-input-box">
+      <label for="Last Name">Last Name</label>
+      <input type="text"
+          id="Last Name"
+          name="Last Name"
+          placeholder="Enter Last Name" required/>
+     </div>
+     <div class="user-input-box">
+      <label for="Employee ID">Employee ID</label>
+      <input type="Employee ID"
+          id="Employee ID"
+          name="Employee ID"
+          placeholder="Enter Employee ID" required/>
+     </div>
+     <div class="user-input-box">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="text"
+          id="phoneNumber"
+          name="phoneNumber"
+          placeholder="Enter Phone Number" required/>
+     </div>
+     <div class="user-input-box">
+      <label for="EMaIl ID">EMaIl ID</label>
+      <input type="EMaIl ID"
+          id="EMaIl ID"
+          name="EMaIl ID"
+          placeholder="Enter EMaIl ID" required/>
+     </div>
+     <div class="user-input-box">
+      <label for="confirmEMaIl ID">Confirm EMaIl ID</label>
+      <input type="EMaIl ID"
+          id="confirmEMaIl ID"
+          name="confirmEMaIl ID"
+          placeholder="Confirm EMaIl ID" required/>
+
+     </div>
+     <div class="user-input-box">
+      <label for="department">Department</label>
+      <select id="department" name="department" required>
+        <option value="">Select Department</option>
+        <option value="Engineering">Cardiology</option>
+        <option value="Sales">Neurology</option>
+        <option value="Marketing">Nephrology</option>
+        <option value="Human Resources">Orthopedics</option>
+        <option value="Human Resources">Endocrinology</option>
+        <option value="Human Resources">Oncology</option>
+        <option value="Human Resources">None</option>
+      </select>
+    </div>
+    <div class="user-input-box">
+      <label for="category">Category</label>
+      <select id="category" name="category" required>
+        <option value="">Select Category</option>
+        <option value="HOD">HOD</option>
+        <option value="Senior Doctor">Senior Doctor</option>
+        <option value="Junior Doctor">Junior Doctor</option>
+        <option value="Nurse">Nurse</option>
+      </select>
+    </div>
+
+    </div>
+    <div class="gender-details-box">
+     <span class="gender-title">Gender</span>
+     <div class="gender-category">
+      <input type="radio" name="gender" id="male" required >
+      <label for="male">Male</label>
+      <input type="radio" name="gender" id="female" required>
+      <label for="female">Female</label>
+      <input type="radio" name="gender" id="other" required>
+      <label for="other">Other</label>
+     </div>
+    </div>
+    <div class="address-input-box">
+      <label for="address-lane-2">Education</label>
+      <input type="text" id="address-lane-2" name="address-lane-2" placeholder="Enter Education" />
+    </div>
+    <div class="address-input-box">
+      <label for="experience">Experience</label>
+      <input type="text" id="address-lane-1" name="experience" placeholder="Enter the no.of years" required />
+    </div>
+    <div class="address-box">
+      <span class="address-title">Address</span>
+      <div class="address-input-box">
+        <label for="house-number">House Number</label>
+        <input type="text" id="house-number" name="house-number" placeholder="Enter House Number" required />
+      </div>
+      <div class="address-input-box">
+        <label for="address-lane-1">Address Lane 1</label>
+        <input type="text" id="address-lane-1" name="address-lane-1" placeholder="Enter Address Lane 1" required />
+      </div>
+      
+      <div class="address-input-box">
+        <label for="country">Country</label>
+        <select id="country" name="country" required>
+          <option value="">Select Country</option>
+          <option value="India">India</option>
+          <option value="United States">United States</option>
+          <option value="United Kingdom">United Kingdom</option>
+          </select>
+      </div>
+      <div class="address-input-box">
+        <label for="state">State</label>
+        <select id="state" name="state" required>
+          <option value="">Select State</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Maharashtra">Maharashtra</option>
+          </select>
+      </div>
+    </div>
+
+    <div class="form-submit-btn">
+      <input type="submit" value="Register">
+    </div>
+   </form>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Requests</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='approval_styles.css') }}">
+</head>
+<body>
+    <div class="Current-requests">
+        <h1>Current Requests</h1>
+        <ul id="requests-list">
+            <!-- Friend requests will be added here dynamically using JavaScript -->
+        </ul>
+    </div>
+    <script>
+        const pendingInfo = {{ pending_info | tojson | safe }};
+    </script>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

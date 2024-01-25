@@ -1,0 +1,150 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Century Gothic;
+}
+
+body {
+	background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.2)), url(img1.jpeg);
+	background-size: cover;
+}
+header{
+	
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+	min-height: 100px;
+}
+ul{
+	float:right;
+	list-style-type: none;
+	margin-top: 30px;
+	margin-right:60px ;
+}
+ul li{
+	display: inline-block;
+}
+ul li a{
+	text-decoration: none;
+	color: #fff;
+	padding: 5px 20px;
+	border: 1px solid transparent;
+	transition: 0.5s ease;
+
+}
+
+ul li a:hover{
+	background-color: #fff;
+	color: #000;
+}
+
+ul li.active a{
+background-color:#fff;
+	color: #000;
+
+}
+
+.logo img{
+	float: left;
+	width: 150px;
+	height: auto;
+}
+
+.main{
+	max-width: 1200px;
+	margin: auto;
+}
+
+.title{
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.title h1{
+	color: #fff;
+	font-size: 65px;
+}
+
+.button{
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+
+.btn{
+	border: 1px solid #fff;
+	padding: 5px 20px;
+	color: #fff;
+	transition: 0.6s ease;
+	font-size: 18px;
+	text-decoration: none;
+	margin-top: 10px;
+}
+
+.btn:hover{
+	background-color: #fff;
+	color: #000;
+}
+
+.sub-menu{
+	display: none;
+    top:6%;
+    position: relative;
+}
+
+.sub-menu ul{
+	position: absolute;
+
+}
+
+.main ul li:hover .sub-menu
+{
+	display: block;
+	position: absolute;
+	background-color: rgb(0,45,117);
+	margin-top: 12px;
+	margin-left: -8px;
+}
+
+.main ul li:hover .sub-menu ul 
+{
+	display: block;
+	margin:6px;
+
+}
+.main ul li:hover .sub-menu ul li
+{
+	width: 75px;
+	padding: 5px;
+	border-bottom: 1px#fff;
+	background: transparent;
+	transition: 0.4s ease;
+	text-align: left;
+	border-radius: 0;
+	
+}
+
+.main ul li:hover .sub-menu ul li:last-child 
+{
+	border-bottom: none;
+}
+/* Add CSS styles for the welcome message */
+.welcome-message {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	font-size: 24px; /* Increase font size */
+	color: #fff;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+	font-weight: bold;
+}
+
+/* Add CSS styles for the emoji */
+.emoji {
+	font-size: 32px; /* Increase font size */
+	margin-left: 5px; /* Add some space between text and emoji */
+}

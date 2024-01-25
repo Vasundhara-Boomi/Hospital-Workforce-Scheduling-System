@@ -1,0 +1,166 @@
+
+<hea<!DOCTYPE html>
+	<html>
+	<head>
+		<title> Employee</title>
+		<link rel="stylesheet" type="text/css" href="static/nurse_styles.css">
+		<style>
+			.modal {
+				display: none;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				background-color: #fff;
+				padding: 20px;
+				border: 1px solid #ccc;
+				z-index: 1000;
+			}
+		</style>
+	
+	</head>
+	<body>der>	
+			<div class="main">
+			
+			 <ul>
+			 <li class="active"><a href="#"><i class="fa fa-home"></i>Home</a></li>
+			 <li><a href="#">About</a></li>
+			 <li><a href="#">Contact</a></li>
+			 <li><a href="#">My Profile</a></li>
+			 <li><a href="#">Notifications</a></li>
+			 <li><a href="{{ url_for('logout') }}" class="btn">LOGOUT</a></li>
+			 
+			 <li><a href="#"><i class="fa fa-caret-down"></i> <i class="fa fa-caret-down"></i></a>
+				 
+			 </li>
+			</ul>
+			<header>
+				<div class="welcome-message">
+					Welcome back {{ nurse_name}} <span class="emoji">&#128075;</span> <!-- Waving hand emoji -->
+				</div>
+			 </div>
+			 <div class="title">
+				 <h1>NURSE HOMEPAGE</h1>
+			 </div>
+			 <div class="button">
+				<a href="{{ url_for('view_schedule_nurse', nurse_name=nurse_name) }}" class="btn">View My Schedule</a>
+				<a href="#" class="btn" id="requestLeaveBtn">Request Leave</a>
+				<a href="{{ url_for('past_working_n', nurse_name=nurse_name) }}" class="btn">View Past Working</a>
+				 
+			 </div>
+	
+				 </header>
+			</div>
+			<div id="leaveRequestModal" class="modal">
+				<h2>Select Date for Leave</h2>
+				<form id="leaveRequestForm">
+					<div id="dateOptions"></div>
+		
+					<input type="submit" value="Submit">
+				</form>
+			</div>
+			<script>
+                
+				document.addEventListener('DOMContentLoaded', function() {
+					document.getElementById('requestLeaveBtn').addEventListener('click', function(event) {
+						event.stopPropagation();
+						fetchLeaveDates();
+						document.getElementById('leaveRequestModal').style.display = 'block';
+					});
+				
+					document.getElementById('leaveRequestForm').addEventListener('submit', function(event) {
+						event.preventDefault();
+						var selectedDate = getSelectedDate();
+						var userName = '{{ nurse_name }}'; // Replace with the nurse's name
+				
+						if (selectedDate) {
+							sendLeaveRequest(userName, selectedDate, function(result) {
+								if (result === 'Leave submitted successfully') {
+									alert('Leave submitted successfully.');
+								} else {
+									alert('Leave request already exists for this name and date.');
+								}
+							});
+							document.getElementById('leaveRequestModal').style.display = 'none';
+						} else {
+							alert('Please select a date before submitting.');
+						}
+					});
+				
+					document.addEventListener('click', function(event) {
+						var leaveModal = document.getElementById('leaveRequestModal');
+						if (event.target !== leaveModal && !leaveModal.contains(event.target)) {
+							leaveModal.style.display = 'none';
+						}
+					});
+				
+					// Other existing functions (fetchLeaveDates, sendLeaveRequest, getSelectedDate, etc.)...
+				
+					function fetchLeaveDates() {
+						var xhr = new XMLHttpRequest();
+						var userName = '{{ nurse_name }}';
+						xhr.open('GET', '/nurse_get_leave_dates/' + userName, true);
+				
+						xhr.onload = function() {
+							if (xhr.status === 200) {
+								var dates = JSON.parse(xhr.responseText);
+								displayLeaveDates(dates);
+							}
+						};
+				
+						xhr.send();
+					}
+				
+					function sendLeaveRequest(username, date, callback) {
+						var xhr = new XMLHttpRequest();
+						xhr.open('POST', '/nurse_submit_leave', true);
+						xhr.setRequestHeader('Content-Type', 'application/json');
+				
+						xhr.onload = function() {
+							if (xhr.status === 200) {
+								var result = xhr.responseText;
+								callback(result); // Pass result to callback function
+							}
+						};
+				
+						var data = JSON.stringify({ username: username, date: date });
+						xhr.send(data);
+					}
+				
+					function getSelectedDate() {
+						var radios = document.getElementsByName('leaveDate');
+						var selectedDate = '';
+				
+						for (var i = 0; i < radios.length; i++) {
+							if (radios[i].checked) {
+								selectedDate = radios[i].value;
+								break;
+							}
+						}
+						return selectedDate;
+					}
+				
+					function displayLeaveDates(dates) {
+						var dateOptions = document.getElementById('dateOptions');
+						dateOptions.innerHTML = '';
+				
+						dates.forEach(function(date) {
+							var label = document.createElement('label');
+							var radio = document.createElement('input');
+							radio.type = 'radio';
+							radio.name = 'leaveDate';
+							radio.value = date;
+							label.appendChild(radio);
+							label.appendChild(document.createTextNode(' ' + date));
+							label.appendChild(document.createElement('br'));
+							dateOptions.appendChild(label);
+						});
+					}
+				});
+				
+			</script>
+			
+
+
+	</body>
+	</html>

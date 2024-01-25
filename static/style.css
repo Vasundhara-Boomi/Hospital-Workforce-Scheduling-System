@@ -1,0 +1,272 @@
+.login {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.login .div {
+  background-color: #ffffff;
+  width: 1152px;
+  height: 700px;
+  position: relative;
+}
+
+.login .rectangle::placeholder {
+  position: absolute;
+  width: 138px;
+  top: 15px;
+  left: 25px;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #555555;
+  font-size: 17.5px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .rectangle {
+  width: 257px;
+  height: 45px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 6.58px;
+  border: 0.73px solid;
+  border-color: #000000;
+}
+
+.login .overlap {
+  width: 351px;
+  height: 53px;
+  top: 212px;
+  border-radius: 6.58px;
+  position: absolute;
+  left: 25px;
+}
+
+.login .text-wrapper {
+  position: absolute;
+  width: 138px;
+  top: 15px;
+  left: 25px;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #555555;
+  font-size: 17.5px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .rectangle {
+  position: absolute;
+  width: 351px;
+  height: 53px;
+  top: 0;
+  left: 0;
+  border-radius: 6.58px;
+  border: 0.73px solid;
+  border-color: #000000;
+}
+
+.login .overlap-group {
+  width: 351px;
+  height: 53px;
+  top: 275px;
+  border-radius: 6.58px;
+  position: absolute;
+  left: 25px;
+}
+
+.login .text-wrapper-2 {
+  position: absolute;
+  width: 100px;
+  top: 15px;
+  left: 25px;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #555555;
+  font-size: 17.5px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .overlap-2 {
+  width: 255px;
+  height: 114px;
+  top: 44px;
+  position: absolute;
+  left: 25px;
+}
+
+.login .text-wrapper-3 {
+  position: absolute;
+  width: 232px;
+  top: 0;
+  left: 0;
+  font-family: "Poppins-ExtraBold", Helvetica;
+  font-weight: 800;
+  color: #000000;
+  font-size: 46px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .text-wrapper-4 {
+  position: absolute;
+  width: 255px;
+  top: 70px;
+  left: 0;
+  font-family: "Poppins-Light", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 20.3px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .div-wrapper {
+  width: 120px;
+  height: 35px;
+  top: 400px;
+  background-color: #000000;
+  border-radius: 2.93px;
+  position: absolute;
+  left: 25px;
+}
+
+.login .text-wrapper-5 {
+  position: absolute;
+  width: 76px;
+  top: 7px;
+  left: 20px;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 17px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .not-a-user-signup {
+  position: absolute;
+  width: 212px;
+  top: 410px;
+  left: 180px;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .span {
+  color: #000000;
+}
+
+.login .text-wrapper-6 {
+  color: #556ef0;
+}
+
+.login .text-wrapper-7 {
+  position: absolute;
+  width: 106px;
+  top: 658px;
+  left: 65px;
+  font-family: "Poppins-Light", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 9.8px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .text-wrapper-8 {
+  position: absolute;
+  width: 67px;
+  top: 658px;
+  left: 194px;
+  font-family: "Poppins-Light", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 9.8px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.login .loginpic {
+  position: absolute;
+  width: 658px;
+  height: 600px;
+  top: 0;
+  left: 550px;
+  object-fit: cover;
+}
+
+.navbar {
+  background-color: black; 
+  color: white;            
+  padding: 10px 0;         
+}
+
+.centered-nav {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  font-size: 1.3rem;       
+  margin-top: 10px;        
+}
+
+ .centered-nav li {
+  display: inline;
+  margin: 0 10px;         
+}
+
+ .centered-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;     
+}
+
+.centered-nav a:hover {
+  background-color: white; 
+  color: #3f51b5;         
+}
+
+
+
+#username,
+#password {
+  padding-left: 15px; /* Adjust this value as needed */
+}
+
+.login .not-a-user-signup {
+  border: none;          
+  background: transparent; 
+  padding: 0;           
+  cursor: pointer;      
+  outline: none;        /* Remove outline */
+  display: flex;        
+  align-items: center;  
+  gap: 10px;            
+}
+
+.overlap-3 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 338px;
+  margin-left: 25px;
+}
+
+
+
+#role {
+  width: 257px;
+  height: 45px;
+  border-radius: 6.58px;
+  border: 0.73px solid #000000;
+  padding-left: 15px;
+}
